@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Comic Preview — ComicCraft</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <div>
+        <div class="brand">📚 ComicCraft</div>
+        <h1>Your Comic Preview</h1>
+      </div>
+      <a class="secondary" href="/">Create Another</a>
+    </header>
+
+    <section class="comic-grid">
+      {% for panel in layout %}
+      <article class="panel">
+        <h2>Panel {{ panel.panel }}: {{ panel.title }}</h2>
+        <img src="/{{ panel.image_path }}" alt="{{ panel.title }}">
+        <p class="scene">{{ panel.scene_description }}</p>
+        {% if panel.caption %}
+          <p class="caption">🔊 {{ panel.caption }}</p>
+        {% endif %}
+        {% if panel.narration %}
+          <p><strong>Narration:</strong> {{ panel.narration }}</p>
+        {% endif %}
+        {% if panel.dialogue %}
+          <p class="dialogue">“{{ panel.dialogue }}”</p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </section>
+
+    <section class="export-card">
+      <h2>Ready to save it?</h2>
+      <p>Your five panels and story have been compiled into a PDF.</p>
+      <a class="primary button-link" href="/download-pdf?pdf_path={{ pdf_path[1:] | urlencode }}">📥 Download Your Comic as PDF</a>
+    </section>
+  </main>
+</body>
+</html>

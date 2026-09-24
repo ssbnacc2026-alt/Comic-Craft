@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComicCraft — Create Your Comic</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="landing">
+  <main class="container form-card">
+    <div class="brand">📚 ComicCraft</div>
+    <h1>Create Your Comic</h1>
+    <p class="subtitle">Turn a story idea into a five-panel AI comic.</p>
+
+    <form action="/generate" method="post" class="comic-form">
+      <label>
+        Story Prompt
+        <textarea name="prompt" rows="4" required placeholder="A brave fox exploring an enchanted forest"></textarea>
+      </label>
+
+      <label>
+        Main Character Name
+        <input name="character_name" required placeholder="Finn">
+      </label>
+
+      <label>
+        Setting
+        <select name="setting">
+          <option>forest</option>
+          <option>school</option>
+          <option>space</option>
+          <option>city</option>
+          <option>village</option>
+        </select>
+      </label>
+
+      <label>
+        Story Tone
+        <select name="tone">
+          <option>light-hearted</option>
+          <option>dramatic</option>
+          <option>poetic</option>
+          <option>funny</option>
+          <option>mysterious</option>
+        </select>
+      </label>
+
+      <label>
+        Art Style
+        <select name="style">
+          <option>comic book</option>
+          <option>anime</option>
+          <option>pixel art</option>
+          <option>realistic</option>
+          <option>storybook</option>
+        </select>
+      </label>
+
+      <button class="primary" type="submit">✨ Generate My Comic</button>
+    </form>
+
+    <p class="small">Developer API: <a href="/docs">/docs</a> · Health: <a href="/health">/health</a></p>
+  </main>
+</body>
+</html>
